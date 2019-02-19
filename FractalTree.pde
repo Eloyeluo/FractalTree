@@ -24,10 +24,10 @@ public void drawBranches(int x,int y, double branchLength, double angle)
 	endY1 = (int)(branchLength*Math.sin(angle1) + y);
 	endX2 = (int)(branchLength*Math.cos(angle2) + x);
 	endY2 = (int)(branchLength*Math.sin(angle2) + y);
-	if(branchLength <= smallestBranch){
 		line(x,y , endX1, endY1);
 		line(x,y, endX2, endY2);
+	if(branchLength > smallestBranch){
+		drawBranches(endX1, endY1, branchLength - 1, angle + .75);
+		drawBranches(endX2, endY2, branchLength - 2, angle - .35);
 	}
-	drawBranches(endX1, endY1, );
-	drawBranches(endX2, endY2,);
 } 
